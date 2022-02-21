@@ -5,7 +5,7 @@ const InlineChunkHtmlPlugin = require("./plugins/inline-chunk-html-plugin.js");
 
 module.exports = {
   entry: "./src/index.svelte",
-  mode: "development",
+  mode: "production",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -52,16 +52,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      // inlineSource: ".(js|css)$", // embed all javascript and css inline
-      // inject: false,
-      // templateContent: ({ htmlWebpackPlugin }) => {
-      //   const
-      //   return `
-      //   {%javascript%}{%endjavascript%}
-      //   ${htmlWebpackPlugin.tags.headTags}
-      //   ${htmlWebpackPlugin.tags.bodyTags}
-      // `;
-      //},
+      inject: false,
+      templateContent() {
+        // Todo: find out how to get chunk sources.
+        const css = "";
+        const js = "";
+        return `{%javascript%}${js}{%endjavascript%} {%stylesheet%}${css}{%endstylesheet%}`;
+      },
     }),
     new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/.+/i]),
     new MiniCssExtractPlugin(),
