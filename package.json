@@ -6,5 +6,8 @@
   "repository": "git@github.com:fibonacid/svelte-liquid.git",
   "author": "Lorenzo Rivosecchi <lorenzo.rivosecchi@lacolonia.studio>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "svelte": "^3.46.4"
+  }
 }
