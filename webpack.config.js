@@ -53,10 +53,17 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: false,
-      templateContent() {
-        // Todo: find out how to get chunk sources.
-        const css = "";
-        const js = "";
+      templateContent({ compilation }) {
+        let css = "";
+        let js = "";
+
+        Object.keys(compilation.assets).forEach((name) => {
+          if (/\.css$/.test(name))
+            css += compilation.assets[name].source() + "; ";
+          if (/\.js$/.test(name))
+            js += compilation.assets[name].source() + "; ";
+        });
+
         return `{%javascript%}${js}{%endjavascript%} {%stylesheet%}${css}{%endstylesheet%}`;
       },
     }),
