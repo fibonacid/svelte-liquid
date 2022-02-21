@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path/posix");
 
 module.exports = {
@@ -30,4 +31,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new HtmlWebpackPlugin()],
 };
