@@ -1,6 +1,7 @@
 const path = require("path/posix");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const InlineChunkHtmlPlugin = require("./plugins/inline-chunk-html-plugin.js");
 
 module.exports = {
   entry: "./src/index.svelte",
@@ -49,5 +50,20 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin(), new MiniCssExtractPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      // inlineSource: ".(js|css)$", // embed all javascript and css inline
+      // inject: false,
+      // templateContent: ({ htmlWebpackPlugin }) => {
+      //   const
+      //   return `
+      //   {%javascript%}{%endjavascript%}
+      //   ${htmlWebpackPlugin.tags.headTags}
+      //   ${htmlWebpackPlugin.tags.bodyTags}
+      // `;
+      //},
+    }),
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/.+/i]),
+    new MiniCssExtractPlugin(),
+  ],
 };
