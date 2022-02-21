@@ -53,6 +53,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: false,
+      filename: "[name].liquid",
       templateContent({ compilation }) {
         let css = "";
         let js = "";
