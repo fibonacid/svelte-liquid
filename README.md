@@ -45,5 +45,5 @@ yarn install
 Build source and print result.
 
 ```bash
-yarn build && && cat dist/main.liquid
+yarn build && cat dist/main.liquid
 ```
