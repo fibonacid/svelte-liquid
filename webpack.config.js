@@ -54,16 +54,14 @@ module.exports = {
       inject: false,
       filename: "[name].liquid",
       templateContent({ compilation }) {
-        let css = "";
-        let js = "";
-
+        const scripts = [];
+        const styles = [];
         Object.keys(compilation.assets).forEach((name) => {
-          if (/\.css$/.test(name))
-            css += compilation.assets[name].source() + "; ";
-          if (/\.js$/.test(name))
-            js += compilation.assets[name].source() + "; ";
+          if (/\.css$/.test(name)) styles.push(compilation.assets[name]);
+          if (/\.js$/.test(name)) scripts.push(compilation.assets[name]);
         });
-
+        const js = scripts.map((s) => s.source()).join("; ");
+        const css = styles.map((s) => s.source()).join("; ");
         return `{%javascript%}${js}{%endjavascript%} {%stylesheet%}${css}{%endstylesheet%}`;
       },
     }),
