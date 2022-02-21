@@ -1,0 +1,10 @@
+{
+  "name": "svelte-liquid",
+  "version": "0.0.0",
+  "description": "Compile svelte to liquid instead of html",
+  "main": "index.js",
+  "repository": "git@github.com:fibonacid/svelte-liquid.git",
+  "author": "Lorenzo Rivosecchi <lorenzo.rivosecchi@lacolonia.studio>",
+  "license": "MIT",
+  "private": true
+}
