@@ -1,5 +1,7 @@
 # svelte-liquid
 
+## Idea
+
 Write svelte
 
 ```html
@@ -30,4 +32,18 @@ Get shopify section with reactivity and scoped css.
 {% endstylesheet %}
 
 <h1>Hello {name}!</h1>
+```
+
+## Run demo
+
+Install modules
+
+```bash
+yarn install
+```
+
+Build source and print result.
+
+```bash
+yarn build && && cat dist/main.liquid
 ```
