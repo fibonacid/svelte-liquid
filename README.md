@@ -22,7 +22,7 @@ Write svelte
 
 Get shopify section with reactivity and scoped css.
 
-```liquid
+```html
 {% javascript %}
 // compiled svelte javascript
 {% endjavascript %}
