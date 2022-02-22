@@ -8,10 +8,10 @@ Write svelte
 // section.svelte
 
 <script>
-  let name = "world";
+  let name = "{{ shop.name }}";
 </script>
 
-<h1>Hello {name}!</h1>
+<h1>Welcome to {name}!</h1>
 
 <style>
   h1 {
@@ -31,7 +31,7 @@ Get shopify section with reactivity and scoped css.
 // compiled svelte css
 {% endstylesheet %}
 
-<h1>Hello {name}!</h1>
+<h1 class="svelte-123">Welcome to {{ shop.name }}!</h1>
 ```
 
 ## Run demo
